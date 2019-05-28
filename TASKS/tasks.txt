@@ -1,0 +1,33 @@
+hej, 
+dzieki:) Zeby przypomniec sobie algorytmy i struktury danych czytalam Skiena "Algoryth Design Manual" (czy jakos tak). 
+Pozniej czytalam Cracking the Coding Interview - i bardzo, bardzo polecam!autor tej ksiazki ma serwic carrercup.com 
+i znajdziesz tam mase pytan z roznych firm. Przerobilam ich nie wiem ile + sporo z glassdoor. Przydalo sie, sporo roznych trickow sie nauczylam. 
+
+A co do pytan, to mialam m.in. zaprojektowac serwis ala tinyurl - architekture ale tez OOdesign komponentow.
+Mialam tez pytania o RPN (konwersja z RPN na normalna notacje), znalezienie drogi w labiryncie z okreslonymi zasadami poruszania sie, 
+stworzenie jak najkrotszego stringa, ktory bedzie otwieral kazdy sejf na swiecie (zasada jest taka, ze sejf jst zabezpieczony 4 znakowym haslem)
+co tam jeszcze...
+jakas rekurencja z powrotami, ale nie pamietam juz zadania, bo to bylo ponad miesiac temu
+iterator po drzewie binarnym
+niezbyt trudne, wiec mialam farta;)
+
+nie no, nie przesadzaj 
+a to Cracking Coding Interview tez sie wlasnie z tego przygotowywalem 
+super ksiazka
+dzieki za info
+dlugo sie przygotowywalas?
+
+ciezko powiedziec, bo sam proces z Google trwal dluuugo
+Pierwsza rozmowe mialam w walentynki, druga po miesiacu
+w miedzyczasie mialam tez inne rozmowy, wiec praktycznie codzien robilam troche zadan
+
+a o co chodzi w tym zadaniu z sejfem  ?
+
+a
+no to masz taki sefj, ktory zapamietuje Ci 4 ostatnio podane cyfry
+i jesli sie zgadzaja z jego kodem, to sie otwiera
+wiec jesli masz ciag
+1 2 3 4 5 6 7 8 i zaczniesz go podawac do sejfu, ktory ma kombinacje 2345
+to sie otworzy
+no i musisz takiego stringa wygenerowac, zeby wszystkie mozliwe kombinacje uwzglednil
+i nie moglam uzyc brute forcea')
