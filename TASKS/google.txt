@@ -1,0 +1,108 @@
+PHONE:
+
+1st
+
+ why google, which project and why,
+ current experience fit (answered: machine learning -> google search)
+ when do we use genetic algorithms
+ examples how can genetic algo be applied to search
+ abstract class vs interface
+ what is multiple inheritance, and issues (showed the diamond problem...)
+ how does C++ deal with diamond
+ synchronized method vs block, cases where 2nd is useful
+ volatile - explain
+ weak references, explain, where are useful, compare to soft
+
+ implement factorial of n ( n! ), what to do with overflow (answered long // or BigInteger)
+ what’s overflow, what’s the value of Integer.MAX_VALUE++ (answ: = Integer.MIN_VALUE )
+ what is the actual value of Integer.MAX_VALUE ?
+
+ implement function to get index of highest bit + follow up: don't use & operator
+
+2nd
+
+why i like/dislike java, differences to other languages i know....
+
+
+
+“Intersection” of 2 sorted sequences:
+
+1, 2, 3
+
+2, 4, 5
+
+2
+
+1,2,4,5
+
+0,2,3,5
+
+2,5
+
+
+
+
+Game “Boggle”
+
+Find words which are in dictionary formed by adjacent letters (in any direction) in 4x4matrix.
+
+[ A, D, S, E
+
+ F, C, I, M
+
+ P, U, R, T
+
+ E, A, B, D ]
+
+* Trap
+
+* Semi
+
+* Dime
+
+* Dimes
+
+* Dim
+
+* Sir
+
+* Rise
+
+Available is a dictionary method:  isWord(String testWord)
+
+---------------
+
+Ponizej wkleilem Ci zadania jakie mialem na swoim. Mialem 5 x 45 minut z jedną dłuższą przerwą. 4x kodowanie na tablicy, a piąte bylo z system design (dyskusja) + małe zadanko z kodowania.
+Moge Cie rowniez prosic abys podal mi o co Cie pytali na tel i onsite? Za jakis czas znowu bym chcial uderzyc do G wiec by mi sie przydały.
+
+ONSITE:
+1. funkcja power z wykladnikiem calkowitym - zaimplementuj + follow up zaimplementuj w zlozonosci lepszej niz liniowa wzgledem wykladnika
+
+query hints podczas wpisywania takie jak w wysz. google - jakbys zaprojektowal, architektura + algorytm + str. danych
+
+2. intersection of quadtrees + znajdz osoby spokrewnione majac ich drzewa genealogiczne
+
+3. troche gadki o alg. genetycznych itp, zaimplementuj prosty algorytm kodujacy text ktory zamienia sekwencje tych samych liter np abccccd -> ab4xcd + przetestuj + przetestuj alg. dekodujacy
+
+4. masz liste slow 5 literowych (size ~ 1 mln), definiujemy relacje miedzy dwoma slowami jesli roznia sie tylko 1 litera, masz zwrocic ilosc podzbiorow tej listy gdzie kazdy podzbior zawiera slowa polaczone relacja. rozmiar zbioru sugeruje ze musi byc conajmniej nlogn
+
+5. system design: zaprojektuj mechanizm podmiany kernela w serwerach googla na ksiezycu :)
+
+----------------
+
+-- phone
+onsite w Krakowie, zgadza się. Pytali mnie o zalety/wady Androida, co bym poprawił, z czym są problemy, etc. Zadanie to implementacja cache'a: jakie struktury dla najlepszej złożoności operacji, sortowanie według priorytetów, pobieranie, usuwanie, etc. Pytali mnie również o projekty, jakie wykonałem, czego dotyczą, technologie, etc.
+
+-- onsite
+Ok, dzisiaj miałem onsite. Pytania które pamiętam to:
+ * obracanie macierzy, dodatkowo obracanie w miejscu (bez drugiej macierzy)
+ * testowanie czy drzewo binarne jest zrównoważone
+ * mamy kwadratowy budynek o rozmiarze NxN (N to liczba pomieszczeń). Niektóre z nich to ściany, niektóre to strażnicy. Należy wyznaczyć największą liczbę (coś jak saper, miny to strażnicy, im dalej tym większy numer, ściany blokują zwiększanie numeru).
+ * mamy mury, pomiędzy którymi może zbierać się woda. Obliczyć ile wody może być dla danych wejściowych którymi są rozmiary murów. Dla uproszczenia rozmiary były w jednostce kwadratowej (czyli np. wielokrotność kratki z zeszytu).
+ * znaleźć najmniejszą możliwą kombinację do sejfu przy założeniu, że podajemy 4 cyfrowy pin na 10 cyfrowej klawiaturze
+ * Masz iterator na iteratory. Wypisz elementy w kolejności: pierwszy element z każdego, drugi, etc...
+ * mamy zewnętrzy serwer który jest super wolny, jak przyśpieszyć transmisję danych (cache, wyspecjalizowane serwery), jak cachować dane, etc.
+ * testowanie, unit testy, jak przeprowadzić test dla określonej funkcji, jakie mogą być powody cyklicznie wywalających się testów
+ * metoda zwracająca losowy element z tablicy, w jaki sposób wielowątkowość może to popsuć jeżeli bez synch.
+
+Wszędzie była złożoność, na pewno zapomniałem o jakichś pytaniach, ale ciężko wszystko zapamiętać bo stres :)

@@ -5,9 +5,12 @@ import com.google.common.collect.TreeMultiset;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Brute force for a simplified version of following task:
+ * (the task is actually from Google :)
  * <p>
  * masz taki sefj, ktory zapamietuje Ci 4 ostatnio podane cyfry
  * i jesli sie zgadzaja z jego kodem, to sie otwiera
@@ -16,22 +19,42 @@ import java.util.List;
  * to sie otworzy
  * no i musisz takiego stringa wygenerowac, zeby wszystkie mozliwe kombinacje uwzglednil
  * </p>
+ *
+ * Generates all code values, then all permutations of these,
+ * then generates strings by reducing "overlaps",
+ * and prints those permutations that result in shortest strings.
+ *
+ * Complexity is *really* bad :) - O( (BASE ^ CODE_LENGTH)! ) - yes, factorial of exp :)
  */
 public class CrackSafeBrute {
 
-    private static int CODE_LENGTH = 3;
+    private static int CODE_LENGTH = 2;
+    private static int BASE = 2;
 
-
-    static List<String> generateAll() {
+    /**
+     * Generate all possible codes for given length and base.
+     * (basically all numbers from 0 to (BASE ^ CODE_LENGTH)
+     * as strings left padded with '0' to CODE_LENGTH)
+     */
+    public static List<String> generateAll(int length, int base) {
+        if (length == 1) {
+            return IntStream.range(0, base)
+                    .mapToObj(i -> Integer.toString(i))
+                    .collect(Collectors.toList());
+        }
         List<String> result = new ArrayList<>();
-        for (int i = 0; i < (1 << CODE_LENGTH); i++) {
-            result.add(String.format("%" + CODE_LENGTH + "s",
-                    Integer.toBinaryString(i)).replace(' ', '0'));
-
+        List<String> tails = generateAll(length - 1, base);
+        for (int i = 0; i < base; i++) {
+            for (String tail : tails) {
+                result.add(i + tail);
+            }
         }
         return result;
     }
 
+    /**
+     * Take the sequence and "squeeze" where possible - overlapping wherever prefix and suffix match.
+     */
     static String reduce(List<String> list) {
 
         StringBuilder sb = new StringBuilder(list.get(0));
@@ -105,7 +128,7 @@ public class CrackSafeBrute {
 //        permutationsBetter(new ArrayList<>(ImmutableList.of("a", "b", "c")), 0, results);
 //        System.out.println(results);
 
-        List<String> allCodes = generateAll();
+        List<String> allCodes = generateAll(CODE_LENGTH, BASE);
 
         List<List<String>> allPerms = new ArrayList<>();
         permutationsBetter(allCodes, 0, allPerms);
@@ -117,6 +140,14 @@ public class CrackSafeBrute {
                 .forEach(s -> results.add(s.length()));
 
         System.out.println(results);
+
+        // print smallest
+        allPerms.stream()
+                .forEach(p -> {
+                    if (reduce(p).length() == results.firstEntry().getElement()) {
+                        System.out.println(p);
+                    }
+                });
 
 //        [10 x 16, 11 x 40, 12 x 224, 13 x 704, 14 x 1568, 15 x 3088, 16 x 5208, 17 x 6552, 18 x 7824, 19 x 6824, 20 x 4976, 21 x 2392, 22 x 784, 23 x 112, 24 x 8]
     }
