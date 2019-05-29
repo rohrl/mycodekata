@@ -29,9 +29,9 @@ public class Graph {
 
 	private Graph(int V) {
 		this.V = V;
-		graph = new ArrayList<LinkedList<Edge>>(V);
+		graph = new ArrayList<>(V);
 		for (int i = 0; i < V; i++) {
-			graph.add(new LinkedList<Edge>());
+			graph.add(new LinkedList<>());
 		}
 	}
 

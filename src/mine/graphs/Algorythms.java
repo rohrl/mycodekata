@@ -14,20 +14,20 @@ import mine.graphs.Graph.Edge;
 
 public class Algorythms {
 
-	public static enum Phase {
-		IN, OUT, TOUCHED;
+	public enum Phase {
+		IN, OUT, TOUCHED
 	}
 
-	public static interface Visitor {
-		public boolean apply(int v, Phase when);
+	public interface Visitor {
+		boolean apply(int v, Phase when);
 	}
 
 	private static Set<Integer> visited;
 
 	public static Set<Integer> DFS(Graph g, int root, Visitor fn) {
-		visited = new HashSet<Integer>();
+		visited = new HashSet<>();
 		dfs(g, root, fn);
-		return new TreeSet<Integer>(visited);
+		return new TreeSet<>(visited);
 	}
 
 	private static void dfs(Graph g, int root, Visitor fn) {
@@ -44,7 +44,7 @@ public class Algorythms {
 	}
 
 	public static Set<Integer> BFS(Graph g, int root, Visitor fn) {
-		visited = new HashSet<Integer>();
+		visited = new HashSet<>();
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(root);
 		visited.add(root);
@@ -62,7 +62,7 @@ public class Algorythms {
 			fn.apply(v, Phase.OUT);
 		}
 
-		return new TreeSet<Integer>(visited);
+		return new TreeSet<>(visited);
 	}
 
 	static TreeSet<Integer> queue;
@@ -74,13 +74,7 @@ public class Algorythms {
 		for (int i = 0; i < distances.length; i++)
 			distances[i] = Double.POSITIVE_INFINITY;
 
-		queue = new TreeSet<Integer>(new Comparator<Integer>() {
-
-			@Override
-			public int compare(Integer v1, Integer v2) {
-				return Double.compare(distances[v1], distances[v2]);
-			}
-		});
+		queue = new TreeSet<>(Comparator.comparingDouble(v2 -> distances[v2]));
 
 		distances[root] = 0;
 		queue.add(root);
@@ -109,15 +103,12 @@ public class Algorythms {
 		final ArrayList<Integer> stack = new ArrayList<Integer>();
 		final Set<Integer> notVisited = new HashSet<Integer>();
 
-		Visitor lateVisitor = new Visitor() {
-			@Override
-			public boolean apply(int v, Phase when) {
-				if (!notVisited.contains(v))
-					return false;
-				if (when == Phase.OUT)
-					stack.add(v);
-				return true;
-			}
+		Visitor lateVisitor = (v, when) -> {
+			if (!notVisited.contains(v))
+				return false;
+			if (when == Phase.OUT)
+				stack.add(v);
+			return true;
 		};
 
 		for (int i = 0; i < g.getV(); i++)
