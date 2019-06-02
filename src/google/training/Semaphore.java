@@ -30,17 +30,13 @@ public class Semaphore {
 
 	public static void main(String[] argv) {
 		final Semaphore s = new Semaphore();
-		new Thread() {
-			public void run() {
-				for (int i = 0; i < 10; i++)
-					s.inc();
-			}
-		}.start();
-		new Thread() {
-			public void run() {
-				for (int i = 0; i < 10; i++)
-					s.dec();
-			}
-		}.start();
+		new Thread(() -> {
+			for (int i = 0; i < 10; i++)
+				s.inc();
+		}).start();
+		new Thread(() -> {
+			for (int i = 0; i < 10; i++)
+				s.dec();
+		}).start();
 	}
 }
