@@ -1,11 +1,10 @@
 package scjp;
 
-import com.sun.org.omg.SendingContext.CodeBase;
-
 import scjp.test6.WhatIfable;
 
 public class Test6 {
 
+	/*
 	public static void main (String [] a ) {
 		new Test6().testConstructors();
 	}
@@ -72,5 +71,6 @@ public class Test6 {
 		}
 
 	}
+	*/
 
 }

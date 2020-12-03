@@ -1,7 +1,6 @@
 package ms.interview;
 
 import com.google.common.collect.ImmutableList;
-import com.sun.istack.internal.Nullable;
 
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +12,6 @@ public class Remove2nMinFromLinkedList {
 
         int value;
 
-        @Nullable
         Node next;
 
         @Override
@@ -31,7 +29,7 @@ public class Remove2nMinFromLinkedList {
      * @param head the head of the list.
      * @return new head or {@code null} if list is empty or has 1 element.
      */
-    public static Node remove2ndMinFromLinkedList(@Nullable Node head) {
+    public static Node remove2ndMinFromLinkedList(Node head) {
 
         // size <= 1
         if (head == null || head.next == null) {

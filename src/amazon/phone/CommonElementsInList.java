@@ -2,7 +2,6 @@ package amazon.phone;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.sun.istack.internal.NotNull;
 
 import java.util.*;
 
@@ -15,7 +14,7 @@ public class CommonElementsInList {
     /**
      * O(N+M)
      */
-    public static Set<Integer> findCommonValues(@NotNull List<Integer> list1, @NotNull List<Integer> list2) {
+    public static Set<Integer> findCommonValues(List<Integer> list1, List<Integer> list2) {
 
         Preconditions.checkNotNull(list1, "List1 can't be null");
         Preconditions.checkNotNull(list2, "List2 can't be null");
